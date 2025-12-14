@@ -1,0 +1,61 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4a90e2, #9013fe);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.app-header {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.miniclock {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color:rgb(34, 178, 94);
+  background-color: black;
+
+  overflow: hidden;
+  border: 2px solid rgb(34, 178, 94);
+  border-radius: 0.5em;
+  touch-action: none;
+}
+
+.miniclock section {
+  width: 2ch;
+  min-width: 2ch; /* prevents collapse */
+  text-align: center;
+}
+
+.miniclock section.colon {
+  width: 0.5ch;
+  min-width: 0.5ch; /* prevents collapse */
+  text-align: center;
+}
+
+.reset-button {
+  border-radius: 999px;
+  padding: 10px 18px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+  font-weight: 600;
+}
+
+.miniclock-resetting {
+  transition: left 500ms ease, top 500ms ease, width 500ms ease, height 500ms ease;
+}
+
+
+

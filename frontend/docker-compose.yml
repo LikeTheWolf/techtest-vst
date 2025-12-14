@@ -1,0 +1,8 @@
+services:
+  clock-frontend:
+    build: .
+    ports:
+      - "4003:4003"
+    volumes:
+      - /home/sav2748/ssl:/clock/ssl:ro  # Mount SSL directory to the container folder
+    command: ["npx", "http-server", "./build", "-p", "4003", "--ssl", "--cert", "/clock/ssl/cloudflare-origin.pem", "--key", "/clock/ssl/cloudflare-origin.key"]
