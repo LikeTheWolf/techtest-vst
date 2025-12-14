@@ -6,7 +6,7 @@ WORKDIR /clock
 # Copy package files
 # Copy exact dependency graph
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm ci --legacy-peer-deps
 
 # Copy the rest of the files
 COPY . .
