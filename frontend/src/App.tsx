@@ -1,7 +1,7 @@
 import { Button } from "@blueprintjs/core";
-import { useRef, useState } from "react";
-import './App.css';
-import MiniClock from './components/MiniClock';
+import { useCallback, useEffect, useRef, useState } from "react";
+import "./App.css";
+import MiniClock from "./components/MiniClock";
 
 const DEFAULT_SIZE = 200;
 const WIDTH_RATIO = 0.8;
@@ -25,7 +25,7 @@ function App() {
 
   const resetTimer = useRef<number | null>(null);
 
-  const handleReset = () => {
+  const handleReset = useCallback(() => {
     if (resetTimer.current !== null) {
       window.clearTimeout(resetTimer.current);
     }
@@ -41,7 +41,17 @@ function App() {
         setIsResetting(false);
       }, RESET_DURATION);
     });
-  };
+  }, [setLocation, setSize]);
+
+  useEffect(() => {
+    const onResize = () => handleReset();
+    window.addEventListener("resize", onResize);
+    window.addEventListener("orientationchange", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("orientationchange", onResize);
+    };
+  }, [handleReset]);
 
   return (
     <div className="App">

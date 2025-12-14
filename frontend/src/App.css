@@ -1,16 +1,19 @@
 .App {
   text-align: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #4a90e2, #9013fe);
+  min-height: 100dvh;
+  background: radial-gradient(circle at 20% 20%, #0f2b46, #081828 55%),
+              linear-gradient(135deg, #0a2035, #0d3353 60%, #0a243a);
   display: flex;
   flex-direction: column;
   position: relative;
+  color: #d9e7ff;
 }
 
 .app-header {
   position: fixed;
-  top: 16px;
-  right: 16px;
+  top: 18px;
+  right: 18px;
 }
 
 .app-main {
@@ -25,12 +28,13 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color:rgb(34, 178, 94);
-  background-color: black;
+  color: #e9f5ff;
+  background: linear-gradient(145deg, #0c1f31, #0f2a42);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 
   overflow: hidden;
-  border: 2px solid rgb(34, 178, 94);
-  border-radius: 0.5em;
+  border: 1px solid rgba(143, 240, 194, 0.35);
+  border-radius: 10px;
   touch-action: none;
 }
 
@@ -38,24 +42,42 @@
   width: 2ch;
   min-width: 2ch; /* prevents collapse */
   text-align: center;
+  letter-spacing: 0.02em;
 }
 
 .miniclock section.colon {
   width: 0.5ch;
   min-width: 0.5ch; /* prevents collapse */
   text-align: center;
+  color: #6ac7ff;
 }
 
 .reset-button {
-  border-radius: 999px;
-  padding: 10px 18px;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 9px 18px;
   font-weight: 600;
+  letter-spacing: 0.01em;
+  background: linear-gradient(135deg, #1f6aa7, #164d7a);
+  color: #eef5ff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.reset-button:hover {
+  filter: brightness(1.06);
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .miniclock-resetting {
-  transition: left 500ms ease, top 500ms ease, width 500ms ease, height 500ms ease;
+  transition:
+    left 500ms ease,
+    top 500ms ease,
+    width 500ms ease,
+    height 500ms ease,
+    font-size 500ms ease,
+    padding 500ms ease;
 }
-
-
-
